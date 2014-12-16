@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1124D52B1A3FF117005EAF60 /* XZZAddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1124D52A1A3FF117005EAF60 /* XZZAddTaskViewController.m */; };
+		1124D52E1A3FF12F005EAF60 /* XZZDetailTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1124D52D1A3FF12F005EAF60 /* XZZDetailTaskViewController.m */; };
+		1124D5311A3FF13E005EAF60 /* XZZEditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1124D5301A3FF13E005EAF60 /* XZZEditTaskViewController.m */; };
 		11931A621A3ED9D4009E5367 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11931A611A3ED9D4009E5367 /* Foundation.framework */; };
 		11931A641A3ED9D4009E5367 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11931A631A3ED9D4009E5367 /* CoreGraphics.framework */; };
 		11931A661A3ED9D4009E5367 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11931A651A3ED9D4009E5367 /* UIKit.framework */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1124D5291A3FF117005EAF60 /* XZZAddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZZAddTaskViewController.h; sourceTree = "<group>"; };
+		1124D52A1A3FF117005EAF60 /* XZZAddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZZAddTaskViewController.m; sourceTree = "<group>"; };
+		1124D52C1A3FF12F005EAF60 /* XZZDetailTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZZDetailTaskViewController.h; sourceTree = "<group>"; };
+		1124D52D1A3FF12F005EAF60 /* XZZDetailTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZZDetailTaskViewController.m; sourceTree = "<group>"; };
+		1124D52F1A3FF13E005EAF60 /* XZZEditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZZEditTaskViewController.h; sourceTree = "<group>"; };
+		1124D5301A3FF13E005EAF60 /* XZZEditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZZEditTaskViewController.m; sourceTree = "<group>"; };
 		11931A5E1A3ED9D4009E5367 /* Overdue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overdue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11931A611A3ED9D4009E5367 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		11931A631A3ED9D4009E5367 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +129,12 @@
 				11931A761A3ED9D4009E5367 /* Main_iPad.storyboard */,
 				11931A791A3ED9D4009E5367 /* XZZViewController.h */,
 				11931A7A1A3ED9D4009E5367 /* XZZViewController.m */,
+				1124D5291A3FF117005EAF60 /* XZZAddTaskViewController.h */,
+				1124D52A1A3FF117005EAF60 /* XZZAddTaskViewController.m */,
+				1124D52C1A3FF12F005EAF60 /* XZZDetailTaskViewController.h */,
+				1124D52D1A3FF12F005EAF60 /* XZZDetailTaskViewController.m */,
+				1124D52F1A3FF13E005EAF60 /* XZZEditTaskViewController.h */,
+				1124D5301A3FF13E005EAF60 /* XZZEditTaskViewController.m */,
 				11931A7C1A3ED9D4009E5367 /* Images.xcassets */,
 				11931A681A3ED9D4009E5367 /* Supporting Files */,
 			);
@@ -254,9 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1124D52B1A3FF117005EAF60 /* XZZAddTaskViewController.m in Sources */,
 				11931A6E1A3ED9D4009E5367 /* main.m in Sources */,
+				1124D5311A3FF13E005EAF60 /* XZZEditTaskViewController.m in Sources */,
 				11931A721A3ED9D4009E5367 /* XZZAppDelegate.m in Sources */,
 				11931A7B1A3ED9D4009E5367 /* XZZViewController.m in Sources */,
+				1124D52E1A3FF12F005EAF60 /* XZZDetailTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +489,7 @@
 				11931A951A3ED9D4009E5367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11931A961A3ED9D4009E5367 /* Build configuration list for PBXNativeTarget "OverdueTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +498,7 @@
 				11931A981A3ED9D4009E5367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

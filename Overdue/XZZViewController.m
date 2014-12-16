@@ -26,4 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addTaskBarButton:(id)sender {
+}
+
+- (IBAction)addTaskBarButtonPressed:(id)sender {
+}
+
+- (IBAction)reloadBarButtonPressed:(id)sender {
+}
 @end

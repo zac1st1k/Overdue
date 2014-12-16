@@ -10,4 +10,7 @@
 
 @interface XZZViewController : UIViewController
 
+- (IBAction)addTaskBarButtonPressed:(id)sender;
+- (IBAction)reloadBarButtonPressed:(id)sender;
+
 @end
