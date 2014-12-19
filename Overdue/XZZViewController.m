@@ -7,6 +7,7 @@
 //
 
 #import "XZZViewController.h"
+#import "XZZTask.h"
 
 @interface XZZViewController ()
 
@@ -18,6 +19,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    XZZTask *mytask;
+    [mytask initWithData:nil];
+    NSLog(@"%@", mytask);
+    
 }
 
 - (void)didReceiveMemoryWarning

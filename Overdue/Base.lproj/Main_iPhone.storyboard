@@ -21,12 +21,28 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="pKF-fE-Mc1">
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="DVj-OB-2hp" detailTextLabel="P8e-YE-k3w" style="IBUITableViewCellStyleSubtitle" id="pKF-fE-Mc1">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKF-fE-Mc1" id="BCg-ye-pgy">
                                             <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DVj-OB-2hp">
+                                                    <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P8e-YE-k3w">
+                                                    <rect key="frame" x="15" y="25" width="43" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -48,8 +64,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="yJa-pR-X0K" kind="push" identifier="pushSegueFromOverdueListToDetailTaskViewController" id="OWH-9C-RQH"/>
-                        <segue destination="aQZ-tG-h4s" kind="modal" identifier="modalSegueFromOverdueListToAddTaskViewController" id="TLA-W7-9KF"/>
+                        <segue destination="yJa-pR-X0K" kind="push" identifier="toDetailTaskViewControllerSegue" id="OWH-9C-RQH"/>
+                        <segue destination="aQZ-tG-h4s" kind="modal" identifier="ToAddTaskViewControllerSegue" id="TLA-W7-9KF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -182,7 +198,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="detailTaskDateLabel" destination="qE1-9p-Xhg" id="asz-ZG-mZ2"/>
                         <outlet property="detailTaskNameLabel" destination="yY0-nf-Lrd" id="gfK-Yc-gll"/>
                         <outlet property="detailTaskTextLabel" destination="rQ0-C3-2WH" id="V19-ut-o2z"/>
-                        <segue destination="6Ya-WK-SCe" kind="push" identifier="pushSegueFromDetailTaskViewControllerToEditTaskViewController" id="dEK-YV-svY"/>
+                        <segue destination="6Ya-WK-SCe" kind="push" identifier="toEditTaskViewControllerSegue" id="dEK-YV-svY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LjO-Hu-AXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
