@@ -16,15 +16,25 @@
     return self;
 }
 
-- (id)initWithData:(NSDictionary *)data;
+- (id)initWithData:(NSDictionary *)data
 {
     self = [super init];
-    self.title = @"Task1";
-    self.description = @"First task";
-   // NSDateFormatter *date = [NSDate dateWithTimeIntervalSinceReferenceDate:118800];
-    self.date = [[NSDateFormatter init] dateFromString:@"15/01/1986"];
-    self.completion = NO;
-    NSLog(@"init %@", self);
-    return self;
+    if (self) {
+        self.title = data[TASK_TITLE];
+        self.description = data[TASK_DESCRIPTION];
+        self.date = data[TASK_DATE];
+        self.isCompleted = [data[TASK_COMPLETION] boolValue];
     }
+    
+    return self;
+    
+//    self.title = @"Task1";
+//    self.description = @"First task";
+//   // NSDateFormatter *date = [NSDate dateWithTimeIntervalSinceReferenceDate:118800];
+//    self.date = [[NSDateFormatter init] dateFromString:@"15/01/1986"];
+//    self.completion = NO;
+//    NSLog(@"init %@", self);
+//    return self;
+}
+
 @end
