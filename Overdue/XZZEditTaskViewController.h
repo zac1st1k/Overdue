@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *editTaskNameLabel;
 @property (strong, nonatomic) IBOutlet UITextView *editTaskTextLabel;
+@property (strong, nonatomic) IBOutlet UIDatePicker *editTaskDatePicker;
 
 - (IBAction)editTaskSaveBarButtonPressed:(id)sender;
 

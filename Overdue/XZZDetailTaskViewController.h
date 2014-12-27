@@ -10,9 +10,9 @@
 
 @interface XZZDetailTaskViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *detailTaskNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *detailTaskTextLabel;
+@property (strong, nonatomic) IBOutlet UILabel *detailTaskTaskLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailTaskDateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *detailTaskDetailLabel;
 
 - (IBAction)detailTaskEditBarButtonPressed:(id)sender;
 

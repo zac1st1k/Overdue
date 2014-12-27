@@ -13,4 +13,6 @@
 - (IBAction)addTaskBarButtonPressed:(id)sender;
 - (IBAction)reloadBarButtonPressed:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITableView *teableView;
+
 @end
