@@ -46,9 +46,23 @@
 }
 */
 
+- (XZZTask *)returnNewTaskObject
+{
+    XZZTask *taskObject = [[XZZTask alloc] init];
+    taskObject.title = self.addTaskNameTextField.text;
+    taskObject.description = self.addTaskTextView.text;
+    taskObject.date = self.addTaskDatePicker.date;
+    taskObject.isCompleted = NO;
+    
+    return taskObject;
+}
+
 - (IBAction)addTaskAddButtonPressed:(id)sender {
+    [self.delegate didAddTask:[self returnNewTaskObject]];
+    
 }
 
 - (IBAction)addTaskCancelButtonPressed:(id)sender {
+    [self.delegate didCancel];
 }
 @end
