@@ -15,6 +15,14 @@
 
 @implementation XZZViewController
 
+- (NSMutableArray *)taskObjects
+{
+    if (!_taskObjects) {
+        _taskObjects = [[NSMutableArray alloc] init];
+    }
+    return _taskObjects;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,4 +47,33 @@
 
 - (IBAction)reloadBarButtonPressed:(id)sender {
 }
+
+#pragma mark - XZZAddTaskViewControllerDelegate
+
+- (void)didAddTask:(XZZTask *)task
+{
+    [self.taskObjects addObject:task];
+    NSMutableArray *taskObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults] arrayForKey:TASK_OBJECTS_KEY] mutableCopy];
+    if (!taskObjectsAsPropertyLists) {
+        taskObjectsAsPropertyLists = [[NSMutableArray alloc] init];
+    }
+    [taskObjectsAsPropertyLists addObject:[self taskObjectAsPropertyList:task]];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.tableView reloadData];
+}
+
+- (void)didCancel
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Helper Methods
+
+- (NSDictionary *)taskObjectAsPropertyList:(XZZTask *)taskObject
+{
+    NSDictionary *dictionary = @{TASK_TITLE: taskObject.title, TASK_DESCRIPTION: taskObject.description, TASK_DATE: taskObject.date, TASK_COMPLETION: @(taskObject.isCompleted)};
+    return dictionary;
+}
+
 @end

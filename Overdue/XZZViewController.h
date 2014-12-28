@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XZZAddTaskViewController.h"
 
-@interface XZZViewController : UIViewController
+@interface XZZViewController : UIViewController <XZZAddTaskViewControllerDelegate>
+
+@property (strong, nonatomic) NSMutableArray *taskObjects;
 
 - (IBAction)addTaskBarButtonPressed:(id)sender;
 - (IBAction)reloadBarButtonPressed:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UITableView *teableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
