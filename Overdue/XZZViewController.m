@@ -69,7 +69,11 @@
         taskObjectsAsPropertyLists = [[NSMutableArray alloc] init];
     }
     [taskObjectsAsPropertyLists addObject:[self taskObjectAsPropertyList:task]];
+    // forgot to setObject
+    [[NSUserDefaults standardUserDefaults] setObject:taskObjectsAsPropertyLists forKey:TASK_OBJECTS_KEY];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.tableView reloadData];
     NSLog(@"added!");
@@ -118,7 +122,7 @@
     XZZTask *task = self.taskObjects[indexPath.row];
     cell.textLabel.text = task.title;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/mm/yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:task.date];
     cell.detailTextLabel.text = stringFromDate;
     
