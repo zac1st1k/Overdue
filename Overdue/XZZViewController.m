@@ -35,7 +35,6 @@
         XZZTask *taskObject = [self taskObjectForDictionary:dictionary];
         [self.taskObjects addObject:taskObject];
     }
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -100,6 +99,18 @@
     return taskObject;
 }
 
+- (BOOL)isDateGreaterThanDate:(NSDate *)date and:(NSDate *)toDate
+{
+    NSTimeInterval dateInterval = [date timeIntervalSince1970];
+    NSTimeInterval toDateInterval = [toDate timeIntervalSince1970];
+    NSLog(@"%f, %f", dateInterval, toDateInterval);
+    if (dateInterval > toDateInterval) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 #pragma UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -125,6 +136,12 @@
     [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:task.date];
     cell.detailTextLabel.text = stringFromDate;
+    BOOL isOverDue = [self isDateGreaterThanDate:[NSDate date] and:task.date];
+    if (isOverDue == YES) {
+        cell.backgroundColor = [UIColor redColor];
+    } else {
+//        cell.backgroundColor = [UIColor yellowColor];
+    }
     
     return cell;
 }
