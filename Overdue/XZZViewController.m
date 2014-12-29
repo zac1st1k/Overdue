@@ -111,6 +111,24 @@
     }
 }
 
+- (void)updateCompletionOfTask:(XZZTask *)task forIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableArray *taskObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults] arrayForKey:TASK_OBJECTS_KEY] mutableCopy];
+    if (!taskObjectsAsPropertyLists) {
+        taskObjectsAsPropertyLists = [[NSMutableArray alloc] init];
+    }
+    [taskObjectsAsPropertyLists removeObjectAtIndex:indexPath.row];
+    if (task.isCompleted == YES) {
+        task.isCompleted = NO;
+    } else {
+        task.isCompleted = YES;
+    }
+    [taskObjectsAsPropertyLists insertObject:[self taskObjectAsPropertyList:task] atIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setObject:taskObjectsAsPropertyLists forKey:TASK_OBJECTS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.tableView reloadData];
+}
+
 #pragma UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -137,13 +155,27 @@
     NSString *stringFromDate = [formatter stringFromDate:task.date];
     cell.detailTextLabel.text = stringFromDate;
     BOOL isOverDue = [self isDateGreaterThanDate:[NSDate date] and:task.date];
-    if (isOverDue == YES) {
+    
+    if (task.isCompleted == YES){
+        cell.backgroundColor = [UIColor grayColor];
+    }
+    else if (isOverDue == YES) {
         cell.backgroundColor = [UIColor redColor];
     } else {
+        cell.backgroundColor = [UIColor whiteColor];
 //        cell.backgroundColor = [UIColor yellowColor];
     }
     
+    
     return cell;
+}
+
+#pragma mark -UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XZZTask *task = self.taskObjects[indexPath.row];
+    [self updateCompletionOfTask:task forIndexPath:indexPath];
 }
 
 @end
