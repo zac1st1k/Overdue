@@ -64,7 +64,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="teableView" destination="VVJ-hK-qrL" id="HDF-YS-ar3"/>
+                        <outlet property="tableView" destination="VVJ-hK-qrL" id="FiW-s5-KTc"/>
                         <segue destination="yJa-pR-X0K" kind="push" identifier="toDetailTaskViewControllerSegue" id="OWH-9C-RQH"/>
                         <segue destination="aQZ-tG-h4s" kind="modal" identifier="ToAddTaskViewControllerSegue" id="TLA-W7-9KF"/>
                     </connections>
@@ -86,20 +86,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWu-ps-kN0">
-                                <rect key="frame" x="20" y="269" width="64" height="30"/>
+                                <rect key="frame" x="20" y="297" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Task">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addTaskAddButtonPressed:" destination="aQZ-tG-h4s" eventType="touchUpInside" id="dAl-wZ-9Lg"/>
+                                </connections>
                             </button>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dym-1t-9Rc">
-                                <rect key="frame" x="252" y="269" width="48" height="30"/>
+                                <rect key="frame" x="252" y="297" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addTaskCancelButtonPressed:" destination="aQZ-tG-h4s" eventType="touchUpInside" id="G7a-m4-zcg"/>
+                                    <action selector="addTaskCancelButtonPressed:" destination="aQZ-tG-h4s" eventType="touchUpInside" id="VcL-pd-sde"/>
                                 </connections>
                             </button>
                             <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-SM-qzB">
@@ -149,6 +152,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="addTaskDatePicker" destination="uAf-lJ-oHA" id="IsG-FI-ZMj"/>
                         <outlet property="addTaskNameTextField" destination="Kpq-SM-qzB" id="ce8-j6-wq5"/>
+                        <outlet property="addTaskTextView" destination="jRx-rv-Egh" id="iSb-wn-KBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exz-Cb-uOS" userLabel="First Responder" sceneMemberID="firstResponder"/>

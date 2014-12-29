@@ -27,10 +27,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    XZZTask *mytask;
-    [mytask initWithData:nil];
-    NSLog(@"%@", mytask);
+//    XZZTask *mytask = [mytask initWithData:nil];
+//    NSLog(@"%@", mytask);
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[XZZAddTaskViewController class]]) {
+        XZZAddTaskViewController *addTaskViewController = segue.destinationViewController;
+        addTaskViewController.delegate = self;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,10 +46,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addTaskBarButton:(id)sender {
-}
-
 - (IBAction)addTaskBarButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"toAddTaskViewController" sender:nil];
 }
 
 - (IBAction)reloadBarButtonPressed:(id)sender {
@@ -61,11 +66,14 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.tableView reloadData];
+    NSLog(@"added!");
+
 }
 
 - (void)didCancel
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"cancelled!");
 }
 
 #pragma mark - Helper Methods

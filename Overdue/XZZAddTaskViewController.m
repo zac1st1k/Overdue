@@ -59,6 +59,7 @@
 
 - (IBAction)addTaskAddButtonPressed:(id)sender {
     [self.delegate didAddTask:[self returnNewTaskObject]];
+    NSLog(@"pressed");
     
 }
 
