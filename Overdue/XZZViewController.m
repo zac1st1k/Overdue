@@ -27,8 +27,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    XZZTask *mytask = [mytask initWithData:nil];
-//    NSLog(@"%@", mytask);
+
+    NSArray *taskAsPropertyLists = [[NSUserDefaults standardUserDefaults] arrayForKey:TASK_OBJECTS_KEY];
+    for (NSDictionary *dictionary in taskAsPropertyLists) {
+        XZZTask *taskObject = [self taskObjectForDictionary:dictionary];
+        [self.taskObjects addObject:taskObject];
+    }
     
 }
 
@@ -82,6 +86,12 @@
 {
     NSDictionary *dictionary = @{TASK_TITLE: taskObject.title, TASK_DESCRIPTION: taskObject.description, TASK_DATE: taskObject.date, TASK_COMPLETION: @(taskObject.isCompleted)};
     return dictionary;
+}
+
+- (XZZTask *)taskObjectForDictionary:(NSDictionary *)dictionary
+{
+    XZZTask *taskObject = [[XZZTask alloc] initWithData:dictionary];
+    return taskObject;
 }
 
 @end
