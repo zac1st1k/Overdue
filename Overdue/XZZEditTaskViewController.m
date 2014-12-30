@@ -50,5 +50,15 @@
 */
 
 - (IBAction)editTaskSaveBarButtonPressed:(id)sender {
+    [self updateTask];
+    [self.delegate didUpdateTask:self.task];
 }
+
+- (void)updateTask
+{
+    self.task.title = self.editTaskNameLabel.text;
+    self.task.description = self.editTaskTextLabel.text;
+    self.task.date = self.editTaskDatePicker.date;
+}
+
 @end

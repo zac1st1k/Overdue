@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "XZZTask.h"
 #import "XZZAppDelegate.h"
 
+@protocol XZZEditTaskViewControllerDelegate <NSObject>
+
+- (void)didUpdateTask:(xzz)
+
+@end
 int main(int argc, char * argv[])
 {
     @autoreleasepool {

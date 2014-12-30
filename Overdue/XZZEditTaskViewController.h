@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "XZZTask.h"
 
+@protocol XZZEditTaskViewControllerDelegate <NSObject>
+
+- (void)didUpdateTask:(XZZTask *)task;
+
+@end
+
 @interface XZZEditTaskViewController : UIViewController
 
 @property (strong, nonatomic) XZZTask *task;
+@property (weak, nonatomic) id <XZZEditTaskViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *editTaskNameLabel;
 @property (strong, nonatomic) IBOutlet UITextView *editTaskTextLabel;
