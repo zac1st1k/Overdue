@@ -11,7 +11,7 @@
 
 @protocol XZZEditTaskViewControllerDelegate <NSObject>
 
-- (void)didUpdateTask:(XZZTask *)task;
+- (void)didUpdateTask;
 
 @end
 

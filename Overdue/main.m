@@ -12,7 +12,7 @@
 
 @protocol XZZEditTaskViewControllerDelegate <NSObject>
 
-- (void)didUpdateTask:(xzz)
+- (void)didUpdateTask;
 
 @end
 int main(int argc, char * argv[])

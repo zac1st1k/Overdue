@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "XZZTask.h"
+#import "XZZEditTaskViewController.h"
 
-@interface XZZDetailTaskViewController : UIViewController
+@protocol XZZDetailTaskViewControllerDelegate <NSObject>
+
+- (void)updateTask;
+
+@end
+
+@interface XZZDetailTaskViewController : UIViewController <XZZEditTaskViewControllerDelegate>
 
 @property (strong, nonatomic) XZZTask *task;
+@property (weak, nonatomic) id <XZZDetailTaskViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailTaskTaskLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailTaskDateLabel;

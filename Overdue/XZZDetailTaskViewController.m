@@ -41,6 +41,7 @@
     if ([segue.destinationViewController isKindOfClass:[XZZEditTaskViewController class]]) {
         XZZEditTaskViewController *editTaskViewController = segue.destinationViewController;
         editTaskViewController.task = self.task;
+        editTaskViewController.delegate = self;
     }
 }
 
@@ -64,4 +65,16 @@
 - (IBAction)detailTaskEditBarButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"toEditTaskViewControllerSegue" sender:nil];
 }
+
+- (void)didUpdateTask
+{
+    self.detailTaskTaskLabel.text = self.task.title;
+    self.detailTaskDetailLabel.text = self.task.description;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+    self.detailTaskDateLabel.text = [formatter stringFromDate:self.task.date];
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate updateTask];
+}
+
 @end

@@ -51,7 +51,7 @@
 
 - (IBAction)editTaskSaveBarButtonPressed:(id)sender {
     [self updateTask];
-    [self.delegate didUpdateTask:self.task];
+    [self.delegate didUpdateTask];
 }
 
 - (void)updateTask
