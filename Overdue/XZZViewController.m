@@ -62,6 +62,11 @@
 }
 
 - (IBAction)reloadBarButtonPressed:(id)sender {
+    if (self.tableView.editing == YES) {
+        [self.tableView setEditing:NO animated:YES];
+    } else {
+        [self.tableView setEditing:YES animated:YES];
+    }
 }
 
 #pragma mark - XZZAddTaskViewControllerDelegate
@@ -209,4 +214,16 @@
     [self performSegueWithIdentifier:@"toDetailTaskViewSegue" sender:indexPath];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+//    XZZTask *taskObject = [self.taskObjects objectAtIndex:sourceIndexPath.row];
+    XZZTask *taskObject = self.taskObjects[sourceIndexPath.row];
+    [self.taskObjects removeObjectAtIndex:sourceIndexPath.row];
+    [self.taskObjects insertObject:taskObject atIndex:destinationIndexPath.row];
+}
 @end
