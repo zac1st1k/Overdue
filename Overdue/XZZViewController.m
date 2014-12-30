@@ -63,9 +63,12 @@
 
 - (IBAction)reloadBarButtonPressed:(id)sender {
     if (self.tableView.editing == YES) {
+        [self saveTasks];
         [self.tableView setEditing:NO animated:YES];
+        self.reloadBarButton.title = @"Edit";
     } else {
         [self.tableView setEditing:YES animated:YES];
+        self.reloadBarButton.title = @"Done";
     }
 }
 
@@ -138,6 +141,16 @@
     [[NSUserDefaults standardUserDefaults] setObject:taskObjectsAsPropertyLists forKey:TASK_OBJECTS_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.tableView reloadData];
+}
+
+- (void)saveTasks
+{
+    NSMutableArray *taskObjectsAsPropertyList = [[NSMutableArray alloc] init];
+    for (int x = 0; x < [self.taskObjects count]; x++) {
+        [taskObjectsAsPropertyList addObject:[self taskObjectAsPropertyList:self.taskObjects[x]]];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:taskObjectsAsPropertyList forKey:TASK_OBJECTS_KEY];
+    [[NSUserDefaults standardUserDefaults]synchronize];
 }
 
 #pragma UITableViewDataSource
@@ -221,7 +234,6 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-//    XZZTask *taskObject = [self.taskObjects objectAtIndex:sourceIndexPath.row];
     XZZTask *taskObject = self.taskObjects[sourceIndexPath.row];
     [self.taskObjects removeObjectAtIndex:sourceIndexPath.row];
     [self.taskObjects insertObject:taskObject atIndex:destinationIndexPath.row];

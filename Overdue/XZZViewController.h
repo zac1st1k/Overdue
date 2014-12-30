@@ -14,9 +14,10 @@
 
 @property (strong, nonatomic) NSMutableArray *taskObjects;
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *reloadBarButton;
+
 - (IBAction)addTaskBarButtonPressed:(id)sender;
 - (IBAction)reloadBarButtonPressed:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

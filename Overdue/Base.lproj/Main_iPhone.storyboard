@@ -51,7 +51,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Overdue List" id="WRW-Cu-7na">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Uwd-Cc-dW0">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Uwd-Cc-dW0">
                             <connections>
                                 <action selector="reloadBarButtonPressed:" destination="vXZ-lx-hvc" id="vbm-vy-Mpm"/>
                             </connections>
@@ -64,6 +64,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reloadBarButton" destination="Uwd-Cc-dW0" id="c7f-W9-iNZ"/>
                         <outlet property="tableView" destination="VVJ-hK-qrL" id="FiW-s5-KTc"/>
                         <segue destination="yJa-pR-X0K" kind="push" identifier="toDetailTaskViewSegue" id="OWH-9C-RQH"/>
                         <segue destination="aQZ-tG-h4s" kind="modal" identifier="ToAddTaskViewControllerSegue" id="TLA-W7-9KF"/>
