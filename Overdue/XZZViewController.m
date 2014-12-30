@@ -48,6 +48,7 @@
         NSIndexPath *path = sender;
         XZZTask *taskObject = self.taskObjects[path.row];
         detailTaskViewController.task = taskObject;
+        detailTaskViewController.delegate = self;
     }
 }
 
@@ -70,6 +71,14 @@
         [self.tableView setEditing:YES animated:YES];
         self.reloadBarButton.title = @"Done";
     }
+}
+
+#pragma mark - XZZDetailTaskViewControllerDelegate
+
+- (void)updateTask
+{
+    [self saveTasks];
+    [self.tableView reloadData];
 }
 
 #pragma mark - XZZAddTaskViewControllerDelegate

@@ -10,7 +10,7 @@
 #import "XZZAddTaskViewController.h"
 #import "XZZDetailTaskViewController.h"
 
-@interface XZZViewController : UIViewController <XZZAddTaskViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface XZZViewController : UIViewController <XZZAddTaskViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, XZZDetailTaskViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *taskObjects;
 
