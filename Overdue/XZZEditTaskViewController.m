@@ -30,6 +30,8 @@
     self.editTaskNameLabel.text = self.task.title;
     self.editTaskTextLabel.text = self.task.description;
     self.editTaskDatePicker.date = self.task.date;
+    self.editTaskNameLabel.delegate = self;
+    self.editTaskTextLabel.delegate =self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,5 +62,21 @@
     self.task.description = self.editTaskTextLabel.text;
     self.task.date = self.editTaskDatePicker.date;
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.editTaskNameLabel resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [self.editTaskTextLabel resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
 
 @end

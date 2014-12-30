@@ -15,7 +15,7 @@
 
 @end
 
-@interface XZZEditTaskViewController : UIViewController
+@interface XZZEditTaskViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) XZZTask *task;
 @property (weak, nonatomic) id <XZZEditTaskViewControllerDelegate> delegate;

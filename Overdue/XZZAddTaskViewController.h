@@ -16,7 +16,7 @@
 
 @end
 
-@interface XZZAddTaskViewController : UIViewController
+@interface XZZAddTaskViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) id <XZZAddTaskViewControllerDelegate> delegate;
 
