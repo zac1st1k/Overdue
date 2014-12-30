@@ -43,6 +43,12 @@
         XZZAddTaskViewController *addTaskViewController = segue.destinationViewController;
         addTaskViewController.delegate = self;
     }
+    else if ([segue.destinationViewController isKindOfClass:[XZZDetailTaskViewController class]]){
+        XZZDetailTaskViewController *detailTaskViewController = segue.destinationViewController;
+        NSIndexPath *path = sender;
+        XZZTask *taskObject = self.taskObjects[path.row];
+        detailTaskViewController.task = taskObject;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -172,18 +178,18 @@
 
 #pragma mark -UITableViewDelegate
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XZZTask *task = self.taskObjects[indexPath.row];
     [self updateCompletionOfTask:task forIndexPath:indexPath];
 }
 
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.taskObjects removeObjectAtIndex:indexPath.row];
@@ -197,4 +203,10 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"toDetailTaskViewSegue" sender:indexPath];
+}
+
 @end

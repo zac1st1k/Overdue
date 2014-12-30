@@ -65,7 +65,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="VVJ-hK-qrL" id="FiW-s5-KTc"/>
-                        <segue destination="yJa-pR-X0K" kind="push" identifier="toDetailTaskViewControllerSegue" id="OWH-9C-RQH"/>
+                        <segue destination="yJa-pR-X0K" kind="push" identifier="toDetailTaskViewSegue" id="OWH-9C-RQH"/>
                         <segue destination="aQZ-tG-h4s" kind="modal" identifier="ToAddTaskViewControllerSegue" id="TLA-W7-9KF"/>
                     </connections>
                 </viewController>
@@ -171,7 +171,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-C3-2WH">
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Detail" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-C3-2WH">
                                 <rect key="frame" x="20" y="131" width="280" height="177"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -203,7 +203,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="detailTaskDateLabel" destination="qE1-9p-Xhg" id="dcu-uE-iLV"/>
                         <outlet property="detailTaskDetailLabel" destination="rQ0-C3-2WH" id="ylT-WY-iOe"/>
-                        <outlet property="detailTaskTaskLabel" destination="yY0-nf-Lrd" id="DwO-zt-Ybq"/>
+                        <outlet property="detailTaskTaskLabel" destination="yY0-nf-Lrd" id="rdH-4I-8DI"/>
                         <segue destination="6Ya-WK-SCe" kind="push" identifier="toEditTaskViewControllerSegue" id="dEK-YV-svY"/>
                     </connections>
                 </viewController>

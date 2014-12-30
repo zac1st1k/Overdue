@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "XZZAddTaskViewController.h"
+#import "XZZDetailTaskViewController.h"
 
 @interface XZZViewController : UIViewController <XZZAddTaskViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 

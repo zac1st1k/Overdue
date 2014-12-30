@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XZZTask.h"
 
 @interface XZZDetailTaskViewController : UIViewController
+
+@property (strong, nonatomic) XZZTask *task;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailTaskTaskLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailTaskDateLabel;
