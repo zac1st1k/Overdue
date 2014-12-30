@@ -7,6 +7,7 @@
 //
 
 #import "XZZDetailTaskViewController.h"
+#import "XZZEditTaskViewController.h"
 
 @interface XZZDetailTaskViewController ()
 
@@ -35,6 +36,14 @@
     self.detailTaskDateLabel.text = stringFromDate;    
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[XZZEditTaskViewController class]]) {
+        XZZEditTaskViewController *editTaskViewController = segue.destinationViewController;
+        editTaskViewController.task = self.task;
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -53,5 +62,6 @@
 */
 
 - (IBAction)detailTaskEditBarButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"toEditTaskViewControllerSegue" sender:nil];
 }
 @end

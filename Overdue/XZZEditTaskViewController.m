@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.editTaskNameLabel.text = self.task.title;
+    self.editTaskTextLabel.text = self.task.description;
+    self.editTaskDatePicker.date = self.task.date;
 }
 
 - (void)didReceiveMemoryWarning
